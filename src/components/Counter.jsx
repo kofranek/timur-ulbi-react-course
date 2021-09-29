@@ -13,7 +13,6 @@ const Counter = function(){
       <h1>{ count }</h1>
       <button onClick={ increment }>increment</button>
       <button onClick={ decrement }>decrement</button>
-
     </div>
   );
 };
