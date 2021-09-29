@@ -2,23 +2,14 @@ import React from 'react'
 import Counter from './components/Counter'
 import ClassCounter from './components/ClassCounter'
 import './styles/App.css'
+import PostItem from './components/PosItem';
 
 function App () {
   return (
     <div className="App">
-
-      <div className="post">
-        <div className="post__content">
-          <strong>1. Javascript</strong>
-          <div>
-            Javascript - programovací jazyk
-          </div>
-        </div>
-        <div className="post__btns">
-          <button>Odstranit</button>
-        </div>
-      </div>
-
+      <PostItem
+        post ={{id:1, title:'Javascript', body:'Description'}}
+      />
     </div>
   );
 }
