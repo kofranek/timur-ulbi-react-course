@@ -1,5 +1,6 @@
 https://www.youtube.com/watch?v=GNrdg3PzpJQ
 
+*** minimální základ ***************
 npx create-react-app . --use-npm --no-optional
 ./public index.html:
     <!DOCTYPE html>
@@ -35,3 +36,10 @@ import React from 'react'
         <App />,
       document.getElementById('root')
     );
+
+
+*******************************
+***** první komponenta **************
+./src/components/counter.jsx
+
+rsc + tab creates stateles React component
