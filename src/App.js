@@ -12,16 +12,15 @@ function App () {
       { id: 2, title: 'Javascript 2', body: 'Description 2' },
       { id: 3, title: 'Javascript 3', body: 'Description 3' },
     ])
-  const [posts2, setPosts2] = useState(
-    [
-      { id: 1, title: 'Python', body: 'Description' },
-      { id: 2, title: 'Python 2', body: 'Description 2' },
-      { id: 3, title: 'Python 3', body: 'Description 3' },
-    ])
+
   return (
     <div className="App">
+      <form>
+        <input type="text" placeholder="Název postu" />
+        <input type="text" placeholder="Popis postu" />
+        <button>Vytvořit post</button>
+      </form>
       <PostList posts={ posts } title="Seznam JS" />
-      <PostList posts={ posts2 } title="Seznam Python" />
     </div>
   );
 }
