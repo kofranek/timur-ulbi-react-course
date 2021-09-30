@@ -15,8 +15,9 @@ function App () {
       { id: 3, title: 'Javascript 3', body: 'Description 3' },
     ])
   const [title, setTitle] = useState('')
-  const addNewPost = () => {
-
+  const addNewPost = (e) => {
+    e.preventDefault()
+    console.log('po kliknutí title=',title)
   }
   return (
     <div className="App">
@@ -28,7 +29,7 @@ function App () {
           type="text"
           placeholder="Název postu"/>
         <MyInput type="text" placeholder="Popis postu"/>
-        <MyButton onClick={ addNewPost }>Vytvořit post</MyButton>
+        <MyButton type="submit" onClick={ addNewPost }>Vytvořit post</MyButton>
       </form>
       <PostList posts={ posts } title="Seznam JS"/>
     </div>
