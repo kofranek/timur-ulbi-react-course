@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import Counter from './components/Counter'
 import ClassCounter from './components/ClassCounter'
 import './styles/App.css'
@@ -15,15 +15,20 @@ function App () {
       { id: 3, title: 'Javascript 3', body: 'Description 3' },
     ])
   const [title, setTitle] = useState('')
-
-  const bodyInputRef = useRef()
+  const [body, setBody] = useState('')
 
   const addNewPost = (e) => {
     e.preventDefault()
-    console.log('po kliknutí title=',title)
-    console.log('po kliknutí bodyInputRef.current.value=',bodyInputRef.current.value)
-    console.log('po kliknutí bodyInputRef.current=',bodyInputRef.current)
-
+    console.log('po kliknutí: title=', title, 'body=', body)
+    const newPost = {
+      id:Date.now(),
+      title,
+      body
+    }
+    setPosts([...posts, newPost])
+    console.log('newPost=',newPost)
+    setTitle('')
+    setBody('')
   }
   return (
     <div className="App">
@@ -35,14 +40,9 @@ function App () {
           type="text"
           placeholder="Název postu"/>
 
-        {/*neřízená komponenta*/}
-
-        {/*<input*/}
-        {/*  ref={bodyInputRef}*/}
-        {/*  type="text" />*/}
-
         <MyInput
-          ref = {bodyInputRef}
+          value={ body }
+          onChange={ e => setBody(e.target.value) }
           type="text"
           placeholder="Popis postu"/>
 
