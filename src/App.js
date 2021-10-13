@@ -14,43 +14,45 @@ function App () {
       { id: 2, title: 'Javascript 2', body: 'Description 2' },
       { id: 3, title: 'Javascript 3', body: 'Description 3' },
     ])
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [post, setPost] = useState({ title: '', body: '' })
+
 
   const addNewPost = (e) => {
     e.preventDefault()
-    console.log('po kliknutí: title=', title, 'body=', body)
-    const newPost = {
-      id:Date.now(),
-      title,
-      body
-    }
-    setPosts([...posts, newPost])
-    console.log('newPost=',newPost)
-    setTitle('')
-    setBody('')
+    //console.log('po kliknutí: title=', title, 'body=', body)
+    // const newPost = {
+    //   id: Date.now(),
+    //   title,
+    //   body
+    // }
+    // setPosts([...posts, newPost])
+    // console.log('newPost=', newPost)
+    setPosts([...posts, {...post, id:Date.now()}])
+    setPost({ title: '', body: '' })
   }
+
   return (
     <div className="App">
       <form>
         {/*řízená komponenta*/ }
         <MyInput
-          value={ title }
-          onChange={ e => setTitle(e.target.value) }
+          value={ post.title }
+          onChange={ e => setPost({ ...post, title: e.target.value }) }
           type="text"
           placeholder="Název postu"/>
 
         <MyInput
-          value={ body }
-          onChange={ e => setBody(e.target.value) }
-          type="text"
-          placeholder="Popis postu"/>
+          value={ post.body }
+          onChange={ e => setPost({ ...post, body: e.target.value })}
+            type='text'
+            placeholder='Popis postu'/>
 
-        <MyButton type="submit" onClick={ addNewPost }>Vytvořit post</MyButton>
-      </form>
-      <PostList posts={ posts } title="Seznam JS"/>
-    </div>
-  );
-}
 
-export default App;
+            <MyButton type='submit' onClick={ addNewPost }>Vytvořit post</MyButton>
+            </form>
+            <PostList posts={ posts } title="Seznam JS"/>
+            </div>
+            );
+          }
+
+          export default App;
